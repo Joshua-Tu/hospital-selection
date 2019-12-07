@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import useResources from "../hooks/useResources";
+import { selectedValueContext } from "../contexts/selectedValueContext";
 
 const HospitalList = () => {
-  const resources = useResources("hospitals");
+  const { hospitals } = useResources("hospitals");
 
-  if (resources.hospitals) {
+  const { severityLevel } = useContext(selectedValueContext);
+
+  if (hospitals) {
+    console.log(hospitals);
+
     return (
-      <>
+      <div>
         <h2>Hospital List</h2>
+        <p>Your severity level: {severityLevel}</p>
         <ul>
-          {resources.hospitals.map(hospital => (
+          {hospitals.map(hospital => (
             <li key={hospital.id}>{hospital.name}</li>
           ))}
         </ul>
-      </>
+      </div>
     );
   }
 
