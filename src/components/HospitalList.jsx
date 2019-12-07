@@ -10,24 +10,40 @@ const HospitalList = () => {
 
   if (hospitals) {
     let filteredList = filterHospitals(hospitals, severityLevel);
-    console.log("filteredList: ", filteredList);
+    // console.log("filteredList: ", filteredList);
+
+    // sorting according to waitingTime
     const orderedList = filteredList.sort(compare("waitingTime"));
-    console.log("orderedList: ", orderedList);
+    // console.log("orderedList: ", orderedList);
 
     return (
       <div>
         <h2>Hospital List</h2>
         <p>Your severity level: {severityLevel}</p>
         <ul>
-          {hospitals.map(hospital => (
-            <li key={hospital.id}>{hospital.name}</li>
-          ))}
+          {orderedList.map((hospital, index) => {
+            const {
+              name,
+              avgProcessTime,
+              patientCount,
+              waitingTime
+            } = hospital;
+            return (
+              <li key={index}>
+                <h4>{name}</h4>
+                <p>Average Process Time: {avgProcessTime}</p>
+                <p>Patient Count: {patientCount}</p>
+                <p>Waiting Time: {waitingTime}</p>
+                <hr />
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
   }
 
-  return <div>{"...loading"}</div>;
+  return <div>...loading</div>;
 };
 
 export default HospitalList;

@@ -4,7 +4,7 @@ export const useHospitals = () => {
 
     hospitals.forEach(hospital => {
       let { waitingList } = hospital;
-      if (severityLevel) {
+      if (severityLevel != null) {
         let hospitalInfo = {
           name: hospital.name,
           avgProcessTime: waitingList[severityLevel].averageProcessTime,
@@ -20,7 +20,7 @@ export const useHospitals = () => {
     return waitingListHospitals;
   };
 
-  //sorting function
+  //compare the value of certain key of the object, for the use of object array sorting
   const compare = key => {
     return function(obj1, obj2) {
       var value1 = obj1[key];
