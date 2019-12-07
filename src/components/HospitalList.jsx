@@ -8,7 +8,23 @@ const HospitalList = () => {
   const { severityLevel } = useContext(selectedValueContext);
 
   if (hospitals) {
-    console.log(hospitals);
+    let waitingListHospitals = [];
+    hospitals.forEach(hospital => {
+      let { waitingList } = hospital;
+      if (severityLevel) {
+        let hospitalInfo = {
+          name: hospital.name,
+          avgProcessTime: waitingList[severityLevel].averageProcessTime,
+          patientCount: waitingList[severityLevel].patientCount,
+          waitingTime:
+            waitingList[severityLevel].averageProcessTime *
+            waitingList[severityLevel].patientCount
+        };
+        // console.log(hospitalInfo);
+        waitingListHospitals.push(hospitalInfo);
+      }
+    });
+    console.log(waitingListHospitals);
 
     return (
       <div>
