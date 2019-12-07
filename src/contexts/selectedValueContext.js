@@ -4,7 +4,7 @@ const selectedValueContext = createContext();
 
 const SelectedValueContextProvider = props => {
   const [illness, setIllness] = useState("");
-  const [severityLevel, setSeverityLevel] = useState(0);
+  const [severityLevel, setSeverityLevel] = useState(null);
 
   // {target} is event.target
   const handleSelectByClick = ({ target }) => {

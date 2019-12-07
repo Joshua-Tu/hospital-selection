@@ -9,7 +9,7 @@ const SeverityLevel = () => {
   return (
     <div>
       <h2>Severity Level</h2>
-      <h3>{illness}</h3>
+      <h3>Your illness: {illness}</h3>
       <div>
         <button onClick={handleSelectByClick}>0</button>
         <button onClick={handleSelectByClick}>1</button>
@@ -17,7 +17,7 @@ const SeverityLevel = () => {
         <button onClick={handleSelectByClick}>3</button>
         <button onClick={handleSelectByClick}>4</button>
       </div>
-      <p>{severityLevel}</p>
+      <p>Your severity level: {severityLevel}</p>
     </div>
   );
 };
