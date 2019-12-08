@@ -2,29 +2,49 @@ import React, { useContext } from "react";
 import { selectedValueContext } from "../contexts/selectedValueContext";
 import { IoIosHappy } from "react-icons/io";
 import { FaSmile, FaSadTear, FaAngry, FaDizzy } from "react-icons/fa";
+import "./severityLevel.css";
 
 const SeverityLevel = () => {
-  const { illness, severityLevel, handleSelectByClick } = useContext(
+  const { illness, severityLevel, hospital, handleSelectByClick } = useContext(
     selectedValueContext
   );
 
+  console.log(hospital);
+
   return (
-    <div>
-      <h2>Severity Level</h2>
-      <h3>Your illness: {illness}</h3>
+    <div className="six wide column">
+      <h2>Select severity Level</h2>
+      <h4 className="selectedValues">
+        Your illness: <span>{illness}</span>{" "}
+      </h4>
       <div>
         <IoIosHappy />
-        <button onClick={handleSelectByClick}>0</button>
+        <button onClick={handleSelectByClick} className="severity">
+          0
+        </button>
         <FaSmile />
-        <button onClick={handleSelectByClick}>1</button>
+        <button onClick={handleSelectByClick} className="severity">
+          1
+        </button>
         <FaSadTear />
-        <button onClick={handleSelectByClick}>2</button>
+        <button onClick={handleSelectByClick} className="severity">
+          2
+        </button>
         <FaAngry />
-        <button onClick={handleSelectByClick}>3</button>
+        <button onClick={handleSelectByClick} className="severity">
+          3
+        </button>
         <FaDizzy />
-        <button onClick={handleSelectByClick}>4</button>
+        <button onClick={handleSelectByClick} className="severity">
+          4
+        </button>
       </div>
-      <p>Your severity level: {severityLevel}</p>
+      <h4 className="selectedValues">
+        Your severity level: <span>{severityLevel}</span>
+      </h4>
+      <h4 className="selectedValues">
+        Your hospital: <span>{hospital}</span>{" "}
+      </h4>
     </div>
   );
 };

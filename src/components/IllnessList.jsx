@@ -11,18 +11,20 @@ const IllnessList = () => {
 
   if (resources.illnesses) {
     return (
-      <div>
-        <h2>Illness List</h2>
-        <ul className="ui relaxed divided list">
+      <div className="four wide column">
+        <h2>Select an Illness</h2>
+        <div className="ui middle aligned selection list">
           {resources.illnesses.map(({ illness }) => (
-            <li key={illness.id}>
+            <div key={illness.id} className="item">
               <FaBiohazard />
-              <button onClick={handleSelectByClick} className="illness">
-                {illness.name}
-              </button>
-            </li>
+              <div className="content">
+                <div onClick={handleSelectByClick} className="illness">
+                  {illness.name}
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }

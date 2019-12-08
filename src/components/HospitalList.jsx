@@ -5,7 +5,9 @@ import { useHospitals } from "../hooks/useHospitals";
 
 const HospitalList = () => {
   const { hospitals } = useResources("hospitals");
-  const { severityLevel } = useContext(selectedValueContext);
+  const { severityLevel, handleSelectByClick } = useContext(
+    selectedValueContext
+  );
   const [filterHospitals, compare] = useHospitals();
 
   if (hospitals) {
@@ -17,10 +19,10 @@ const HospitalList = () => {
     // console.log("orderedList: ", orderedList);
 
     return (
-      <div>
+      <div className="six wide column">
         <h2>Hospital List</h2>
         <p>Your severity level: {severityLevel}</p>
-        <ul>
+        <div className="ui cards">
           {orderedList.map((hospital, index) => {
             const {
               name,
@@ -29,16 +31,28 @@ const HospitalList = () => {
               waitingTime
             } = hospital;
             return (
-              <li key={index}>
-                <h4>{name}</h4>
-                <p>Average Process Time: {avgProcessTime}</p>
-                <p>Patient Count: {patientCount}</p>
-                <p>Waiting Time: {waitingTime}</p>
-                <hr />
-              </li>
+              <div className="card" key={index}>
+                <div className="ui top attached button">
+                  <i class="add icon"></i>
+                  <div onClick={handleSelectByClick} className="hospital">
+                    {name}
+                  </div>
+                </div>
+                <div className="content">
+                  <p>
+                    <strong>Average Process Time:</strong> {avgProcessTime} mins
+                  </p>
+                  <p>
+                    <strong>Patient Count:</strong> {patientCount}
+                  </p>
+                  <p>
+                    <strong>Wait Time:</strong> {waitingTime} mins
+                  </p>
+                </div>
+              </div>
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }
