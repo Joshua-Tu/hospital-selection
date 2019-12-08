@@ -33,7 +33,7 @@ const HospitalList = () => {
             return (
               <div className="card" key={index}>
                 <div className="ui top attached button">
-                  <i class="add icon"></i>
+                  <i className="add icon"></i>
                   <div onClick={handleSelectByClick} className="hospital">
                     {name}
                   </div>
