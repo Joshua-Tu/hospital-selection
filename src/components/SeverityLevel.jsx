@@ -12,11 +12,9 @@ const SeverityLevel = () => {
   console.log(hospital);
 
   return (
-    <div className="six wide column">
+    <div className="five wide column">
       <h2>Select severity Level</h2>
-      <h4 className="selectedValues">
-        Your illness: <span>{illness}</span>{" "}
-      </h4>
+
       <div>
         <IoIosHappy />
         <button onClick={handleSelectByClick} className="severity">
@@ -39,6 +37,9 @@ const SeverityLevel = () => {
           4
         </button>
       </div>
+      <h4 className="selectedValues">
+        Your illness: <span>{illness}</span>{" "}
+      </h4>
       <h4 className="selectedValues">
         Your severity level: <span>{severityLevel}</span>
       </h4>

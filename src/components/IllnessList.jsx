@@ -11,7 +11,7 @@ const IllnessList = () => {
 
   if (resources.illnesses) {
     return (
-      <div className="four wide column">
+      <div className="five wide column">
         <h2>Select an Illness</h2>
         <div className="ui middle aligned selection list">
           {resources.illnesses.map(({ illness }) => (

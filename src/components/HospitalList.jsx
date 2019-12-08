@@ -19,7 +19,7 @@ const HospitalList = () => {
     // console.log("orderedList: ", orderedList);
 
     return (
-      <div className="six wide column">
+      <div className="five wide column">
         <h2>Hospital List</h2>
         <p>Your severity level: {severityLevel}</p>
         <div className="ui cards">

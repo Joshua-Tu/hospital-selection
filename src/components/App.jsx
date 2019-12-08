@@ -5,7 +5,7 @@ import HospitalList from "./HospitalList";
 
 const App = () => {
   return (
-    <div className="ui three column grid container">
+    <div className="ui three column grid center aligned container">
       <IllnessList />
       <SeverityLevel />
       <HospitalList />
